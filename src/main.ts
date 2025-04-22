@@ -43,4 +43,3 @@ export * from "@/components/ui/tooltip";
 export * from "@/lib/utils";
 
 import "@/index.css";
-import "@/global.css";
