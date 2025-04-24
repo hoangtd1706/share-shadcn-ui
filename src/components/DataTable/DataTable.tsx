@@ -38,7 +38,7 @@ type Props<T> = {
   loading?: boolean;
 };
 
-export default function DataTable<T>({
+export function DataTable<T>({
   pageSizeStorageKey = "canes.table.page.size",
   columns,
   dataSource,
