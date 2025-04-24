@@ -1,6 +1,6 @@
 {
   "name": "@canes/share-shadcn-ui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Hoang Tran",
   "license": "MIT",
   "repository": {
@@ -41,6 +41,7 @@
     "vite-plugin-dts": "^4.5.3"
   },
   "dependencies": {
+    "@canes/mfe-app-core": "^1.2.4",
     "@hookform/resolvers": "^4.1.3",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",
