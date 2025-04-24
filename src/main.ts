@@ -40,6 +40,7 @@ export * from "@/components/ui/toggle-group";
 export * from "@/components/ui/toggle";
 export * from "@/components/ui/tooltip";
 export * from "@/components/DataTable/DataTable";
+export * from "@/components/AutoComplete";
 
 export * from "@/lib/utils";
 
