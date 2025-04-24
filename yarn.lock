@@ -34,6 +34,14 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
+"@canes/mfe-app-core@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@canes/mfe-app-core/-/mfe-app-core-1.2.4.tgz#552d1fbe5bfce741ee01b2f3678a93862a5ad411"
+  integrity sha512-K1VYOQ36yupxeVh1AIs7mGSUJJuX5Z2S89O0pi6IicW4Q37O6PDXbGfL0j4itGK8LaqNMqK03eKg0kzYM1t/6Q==
+  dependencies:
+    react "^19.0.0"
+    react-dom "^19.0.0"
+
 "@emnapi/core@^1.4.0":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@emnapi/core/-/core-1.4.3.tgz#9ac52d2d5aea958f67e52c40a065f51de59b77d6"
