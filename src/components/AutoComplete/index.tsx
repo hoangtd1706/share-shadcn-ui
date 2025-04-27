@@ -166,7 +166,7 @@ export function AutoComplete({
                     ) : (
                       <div className="flex flex-col w-full">
                         <div className="flex items-center gap-2">
-                          {option.value} {option.label}
+                          {option.label}
                           {selected && <Check className="ml-auto h-4 w-4" />}
                         </div>
                         {option.description && (
