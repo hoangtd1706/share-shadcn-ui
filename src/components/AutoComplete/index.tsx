@@ -31,6 +31,7 @@ type Props = {
   searchable?: boolean;
   filterFn?: (option: Option, search: string) => boolean;
   className?: string;
+  renderLabel?: (option: Option) => React.ReactNode;
 };
 
 export function AutoComplete({
@@ -43,6 +44,7 @@ export function AutoComplete({
   searchable = false,
   filterFn,
   className,
+  renderLabel,
 }: Props) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState<string>("");
@@ -159,17 +161,21 @@ export function AutoComplete({
                     key={option.value}
                     onSelect={() => toggleValue(option.value)}
                   >
-                    <div className="flex flex-col w-full">
-                      <div className="flex items-center gap-2">
-                        {option.value} {option.label}
-                        {selected && <Check className="ml-auto h-4 w-4" />}
+                    {renderLabel !== undefined ? (
+                      renderLabel(option)
+                    ) : (
+                      <div className="flex flex-col w-full">
+                        <div className="flex items-center gap-2">
+                          {option.value} {option.label}
+                          {selected && <Check className="ml-auto h-4 w-4" />}
+                        </div>
+                        {option.description && (
+                          <span className="text-xs text-muted-foreground">
+                            {option.description}
+                          </span>
+                        )}
                       </div>
-                      {option.description && (
-                        <span className="text-xs text-muted-foreground">
-                          {option.description}
-                        </span>
-                      )}
-                    </div>
+                    )}
                   </CommandItem>
                 );
               })}
