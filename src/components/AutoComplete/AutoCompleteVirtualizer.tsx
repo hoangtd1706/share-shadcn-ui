@@ -29,7 +29,7 @@ type Props = {
   renderLabel?: (option: Option) => React.ReactNode;
 };
 
-export function AutoCompleteVisualized({
+export function AutoCompleteVirtualizer({
   options,
   placeholder = "Chọn...",
   multiple = false,
