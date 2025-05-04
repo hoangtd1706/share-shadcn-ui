@@ -1,6 +1,6 @@
 {
   "name": "@canes/share-shadcn-ui",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "author": "Hoang Tran",
   "license": "MIT",
   "repository": {
@@ -37,6 +37,7 @@
     "globals": "^15.15.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
+    "virtua": "^0.41.0",
     "vite": "^6.2.0",
     "vite-plugin-dts": "^4.5.3"
   },
