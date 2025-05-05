@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RemoveTones } from "@canes/mfe-app-core";
 
 import {
@@ -19,6 +19,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -36,6 +37,8 @@ type Props<T> = {
   dataSource: T[];
   onRowClick?: (row: T) => void;
   loading?: boolean;
+  searchable?: boolean;
+  footer?: React.ReactNode;
 };
 
 export function DataTable<T>({
@@ -44,6 +47,8 @@ export function DataTable<T>({
   dataSource,
   onRowClick,
   loading = false,
+  searchable = false,
+  footer,
 }: Props<T>) {
   const [data, setData] = useState(dataSource);
   const [keyword, setKeyword] = useState<string | undefined>(undefined);
@@ -102,14 +107,16 @@ export function DataTable<T>({
 
   return (
     <div className="w-full z-0 select-none">
-      <div className="flex items-center pb-1">
-        <Input
-          placeholder="Tìm kiếm..."
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
-          className="max-w-sm"
-        />
-      </div>
+      {searchable && (
+        <div className="flex items-center pb-1">
+          <Input
+            placeholder="Tìm kiếm..."
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            className="max-w-sm"
+          />
+        </div>
+      )}
       <div className="rounded-md border">
         <Table className="z-0">
           <TableHeader className="z-0">
@@ -205,6 +212,7 @@ export function DataTable<T>({
               </>
             )}
           </TableBody>
+          {footer && <TableFooter>{footer}</TableFooter>}
         </Table>
       </div>
       <div className="flex items-center justify-end gap-1 mt-1">
