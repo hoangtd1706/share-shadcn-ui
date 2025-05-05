@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { composeRefs } from "@radix-ui/react-compose-refs";
 import { Primitive } from "@radix-ui/react-primitive";
@@ -7,7 +9,9 @@ const VirtualizedContext = React.createContext<{
   scrollRef: React.RefObject<React.ElementRef<typeof Primitive.div> | null>;
   withScrollRef: boolean;
 }>({
-  scrollRef: React.createRef<React.ElementRef<typeof Primitive.div>>(),
+  scrollRef: {
+    current: null,
+  },
   withScrollRef: false,
 });
 
