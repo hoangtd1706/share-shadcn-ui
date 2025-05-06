@@ -2,10 +2,11 @@ import * as React from "react";
 
 import { useMemo, useState } from "react";
 import { RemoveTones } from "@canes/mfe-app-core";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
+import { VList } from "virtua";
 import { Check, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Button } from "../ui/button";
 import {
   Command,
   CommandEmpty,
@@ -154,31 +155,33 @@ export function AutoComplete({
           <CommandList>
             <CommandEmpty>Không tìm thấy.</CommandEmpty>
             <CommandGroup>
-              {filteredOptions.map((option) => {
-                const selected = values.includes(option.value);
-                return (
-                  <CommandItem
-                    key={option.value}
-                    onSelect={() => toggleValue(option.value)}
-                  >
-                    {renderLabel !== undefined ? (
-                      renderLabel(option)
-                    ) : (
-                      <div className="flex flex-col w-full">
-                        <div className="flex items-center gap-2">
-                          {option.label}
-                          {selected && <Check className="ml-auto h-4 w-4" />}
+              <VList style={{ height: 240 }}>
+                {filteredOptions.map((option) => {
+                  const selected = values.includes(option.value);
+                  return (
+                    <CommandItem
+                      key={option.value}
+                      onSelect={() => toggleValue(option.value)}
+                    >
+                      {renderLabel !== undefined ? (
+                        renderLabel(option)
+                      ) : (
+                        <div className="flex flex-col w-full">
+                          <div className="flex items-center gap-2">
+                            {option.label}
+                            {selected && <Check className="ml-auto h-4 w-4" />}
+                          </div>
+                          {option.description && (
+                            <span className="text-xs text-muted-foreground">
+                              {option.description}
+                            </span>
+                          )}
                         </div>
-                        {option.description && (
-                          <span className="text-xs text-muted-foreground">
-                            {option.description}
-                          </span>
-                        )}
-                      </div>
-                    )}
-                  </CommandItem>
-                );
-              })}
+                      )}
+                    </CommandItem>
+                  );
+                })}
+              </VList>
             </CommandGroup>
           </CommandList>
         </Command>
