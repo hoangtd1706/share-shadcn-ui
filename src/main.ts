@@ -41,7 +41,6 @@ export * from "@/components/ui/toggle";
 export * from "@/components/ui/tooltip";
 export * from "@/components/DataTable/DataTable";
 export * from "@/components/AutoComplete/index";
-export * from "@/components/AutoComplete/AutoCompleteVirtualizer";
 
 export * from "@/lib/utils";
 
