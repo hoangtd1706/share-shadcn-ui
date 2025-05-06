@@ -215,10 +215,12 @@ export function DataTable<T>({
           {footer && <TableFooter>{footer}</TableFooter>}
         </Table>
       </div>
-      <div className="flex items-center justify-end gap-1 mt-1">
-        <PaginationTable table={table} />
-        <PageSizeSelector table={table} setPageSize={setPageSize} />
-      </div>
+      {data.length > pagination.pageSize && (
+        <div className="flex items-center justify-end gap-1 mt-1">
+          <PaginationTable table={table} />
+          <PageSizeSelector table={table} setPageSize={setPageSize} />
+        </div>
+      )}
     </div>
   );
 }
