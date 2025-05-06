@@ -104,7 +104,7 @@ export function AutoComplete({
       <div
         className={cn("relative w-min-200", className ? className : "w-full")}
       >
-        <PopoverTrigger asChild>
+        <PopoverTrigger asChild tabIndex={0}>
           <Button
             variant="outline"
             role="combobox"
@@ -155,7 +155,7 @@ export function AutoComplete({
           <CommandList>
             <CommandEmpty>Không tìm thấy.</CommandEmpty>
             <CommandGroup>
-              <VList style={{ height: 240 }}>
+              <VList style={{ maxHeight: 240 }}>
                 {filteredOptions.map((option) => {
                   const selected = values.includes(option.value);
                   return (
