@@ -155,33 +155,67 @@ export function AutoComplete({
           <CommandList>
             <CommandEmpty>Không tìm thấy.</CommandEmpty>
             <CommandGroup>
-              <VList style={{ maxHeight: 240 }}>
-                {filteredOptions.map((option) => {
-                  const selected = values.includes(option.value);
-                  return (
-                    <CommandItem
-                      key={option.value}
-                      onSelect={() => toggleValue(option.value)}
-                    >
-                      {renderLabel !== undefined ? (
-                        renderLabel(option)
-                      ) : (
-                        <div className="flex flex-col w-full">
-                          <div className="flex items-center gap-2">
-                            {option.label}
-                            {selected && <Check className="ml-auto h-4 w-4" />}
+              {options.length > 100 ? (
+                <VList style={{ height: 240 }}>
+                  {filteredOptions.map((option) => {
+                    const selected = values.includes(option.value);
+                    return (
+                      <CommandItem
+                        key={option.value}
+                        onSelect={() => toggleValue(option.value)}
+                      >
+                        {renderLabel !== undefined ? (
+                          renderLabel(option)
+                        ) : (
+                          <div className="flex flex-col w-full">
+                            <div className="flex items-center gap-2">
+                              {option.label}
+                              {selected && (
+                                <Check className="ml-auto h-4 w-4" />
+                              )}
+                            </div>
+                            {option.description && (
+                              <span className="text-xs text-muted-foreground">
+                                {option.description}
+                              </span>
+                            )}
                           </div>
-                          {option.description && (
-                            <span className="text-xs text-muted-foreground">
-                              {option.description}
-                            </span>
-                          )}
-                        </div>
-                      )}
-                    </CommandItem>
-                  );
-                })}
-              </VList>
+                        )}
+                      </CommandItem>
+                    );
+                  })}
+                </VList>
+              ) : (
+                <>
+                  {filteredOptions.map((option) => {
+                    const selected = values.includes(option.value);
+                    return (
+                      <CommandItem
+                        key={option.value}
+                        onSelect={() => toggleValue(option.value)}
+                      >
+                        {renderLabel !== undefined ? (
+                          renderLabel(option)
+                        ) : (
+                          <div className="flex flex-col w-full">
+                            <div className="flex items-center gap-2">
+                              {option.label}
+                              {selected && (
+                                <Check className="ml-auto h-4 w-4" />
+                              )}
+                            </div>
+                            {option.description && (
+                              <span className="text-xs text-muted-foreground">
+                                {option.description}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </CommandItem>
+                    );
+                  })}
+                </>
+              )}
             </CommandGroup>
           </CommandList>
         </Command>
