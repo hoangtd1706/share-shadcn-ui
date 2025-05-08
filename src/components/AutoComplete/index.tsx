@@ -120,7 +120,7 @@ export function AutoComplete({
                 isMultiple ? (
                   <span>{`Đã chọn ${selectedOptions.length}`}</span>
                 ) : (
-                  <span>{selectedOptions[0].label}</span>
+                  <span className="truncate">{selectedOptions[0].label}</span>
                 )
               ) : (
                 <span className="text-muted-foreground">{placeholder}</span>
