@@ -102,7 +102,11 @@ export function AutoComplete({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <div
-        className={cn("relative w-min-200", className ? className : "w-full")}
+        className={cn(
+          "relative w-min-200",
+          className ? className : "w-full",
+          "overflow-x-hidden"
+        )}
       >
         <PopoverTrigger asChild tabIndex={0}>
           <Button
